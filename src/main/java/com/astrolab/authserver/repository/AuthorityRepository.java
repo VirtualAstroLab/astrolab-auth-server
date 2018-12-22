@@ -1,0 +1,12 @@
+package com.astrolab.authserver.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.astrolab.authserver.model.Authority;
+
+
+public interface AuthorityRepository extends JpaRepository<Authority, String>{
+	
+	Authority findByName(String name);
+	
+}
