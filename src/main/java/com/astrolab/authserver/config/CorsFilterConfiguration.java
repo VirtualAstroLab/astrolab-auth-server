@@ -12,6 +12,7 @@ import org.springframework.web.filter.CorsFilter;
 public class CorsFilterConfiguration {
 
     @Bean
+    @SuppressWarnings("rawtypes")
     public FilterRegistrationBean corsFilter() {
         
     	UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -23,6 +24,7 @@ public class CorsFilterConfiguration {
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
         
+        @SuppressWarnings("unchecked") 
         FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
